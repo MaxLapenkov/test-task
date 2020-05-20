@@ -1,14 +1,26 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux'
-import './item-table.scss'
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withService } from '../hoc';
+import { itemsLoaded } from '../../actions';
+import './item-table.scss';
 class ItemTable extends Component{
+
+    componentDidMount() {
+        const { service } = this.props;
+        const data = service.getItems();
+        this.props.itemsLoaded(data);
+        
+    }
+
     renderRow = (item) => {
-        const {id, name, price, count} = item;
+        const {id, name, price, count, image, isNew} = item;
+        const itemName =  isNew ? <p>{name} <span>new</span></p> : name
                         return (
                             <tr key={id}>
                                 <td>{id}</td>
-                                <td>Картинка</td>
-                                <td>{name}</td>
+                                <td><img src={image} alt="item" width="50"/></td>
+                                <td>{itemName}</td>
                                 <td>{price}</td>
                                 <td>{count}</td>
                             </tr>
@@ -41,5 +53,15 @@ class ItemTable extends Component{
 const mapStateToProps = ({ items }) => {
     return { items };
 };
+const mapDispatchToProps  = {
+    itemsLoaded
+};
 
-export default connect(mapStateToProps)(ItemTable)
+export default compose(
+    withService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(ItemTable);
+
+
+
+    

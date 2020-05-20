@@ -4,7 +4,14 @@ const itemsLoaded = (newItems) => {
         payload: newItems
     };
 };
+const sumChanged = (newSum) => { 
+    return {
+        type: 'SUM_CHANGED',
+        payload: newSum
+    }
+}
 
 export {
-    itemsLoaded
+    itemsLoaded,
+    sumChanged,
 };

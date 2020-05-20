@@ -1,17 +1,37 @@
 const initialState = {
-    items: [
-        {id: 1, name: 'Orbit', price: 25, count: 25},
-        {id: 2, name: 'Coca-cola', price: 50, count: 15},
-        {id: 3, name: 'Snickers', price: 30, count: 35}
-    ]
+    items: [],
+    sum: 0
 }
 
 const reducer = (state = initialState, action) => {
+    
     switch(action.type) {
-        case 'ITEMS_LOADED':
+        case 'ITEMS_LOADED':   
             return {
+                ...state,
                 items: action.payload
             };
+            
+        case 'SUM_CHANGED':
+            let sum = state.sum
+            if(action.payload === 'clear') {
+                return {
+                    ...state,
+                    sum: 0
+                }
+            } else {
+                return {
+                    ...state,
+                    sum: sum += Number(action.payload)
+                };
+            }
+            
+        case 'SUM_CLEARED':
+            return {
+                ...state,
+                sum: 0
+            };
+        
          default :
             return state
     }
