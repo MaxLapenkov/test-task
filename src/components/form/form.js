@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
 const Form = ({ sumChanged, itemsLoaded, data, sum}) => {
-    const [money, setMoney] = useState(0)
+    const [money, setMoney] = useState('')
     const [currency, setCurrency] = useState('')
     const sendInfo = (money, currency) => {
         
-        const Total = sum += money
+        
         if(currency === '') {
             alert('Выберите валюту')
         } else {
@@ -15,6 +15,7 @@ const Form = ({ sumChanged, itemsLoaded, data, sum}) => {
                 money = money * 80
             }  
             sumChanged(money)
+            const Total = sum += money
             let newData = [];
             data.map((item) => {
                 if(item.price <= Total) {
