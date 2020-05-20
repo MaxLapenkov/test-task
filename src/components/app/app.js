@@ -1,8 +1,10 @@
 import React from 'react';
+import ItemTable from '../item-table/item-table';
+
 const App = () => {
 
     return (
-        <div>Hello</div>
+        <ItemTable />
     )
 }
 
