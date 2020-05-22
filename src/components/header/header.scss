@@ -1,5 +1,4 @@
 .header{
-
     border-bottom: 1px solid #e5e5e5;
     display: flex;
     flex-direction: row;
@@ -27,6 +26,21 @@
             display: inline-block;
             font-size: inherit;
             text-rendering: auto;
+        }
+    }
+}
+@media screen and (max-width: 1000px) {
+    .header{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 600px) {
+    .header{
+        &__title{
+            font-size: 1.5rem;
+        }
+        &__menu {
+            flex-direction: column;
         }
     }
 }
