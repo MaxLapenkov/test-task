@@ -1,6 +1,6 @@
-import React from 'react'
-import '../modals.scss'
-import cross from '../../../images/cross.jpg'
+import React from 'react';
+import '../modals.scss';
+import cross from '../../../images/cross.jpg';
 const BalanceErrorModal = ({ errorModal, onClicked }) => {
     
     return (
@@ -14,4 +14,4 @@ const BalanceErrorModal = ({ errorModal, onClicked }) => {
     )
 }
 
-export default BalanceErrorModal
+export default BalanceErrorModal;

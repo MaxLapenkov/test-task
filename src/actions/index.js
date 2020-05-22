@@ -9,8 +9,7 @@ const sumChanged = (newSum) => {
         type: 'SUM_CHANGED',
         payload: newSum
     }
-}
-
+};
 export {
     itemsLoaded,
     sumChanged,

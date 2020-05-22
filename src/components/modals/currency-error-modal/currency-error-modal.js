@@ -1,6 +1,6 @@
-import React from 'react'
-import cross from '../../../images/cross.jpg'
-import '../modals.scss'
+import React from 'react';
+import cross from '../../../images/cross.jpg';
+import '../modals.scss';
 const CurrencyErrorModal = ({ errorModal, onClicked }) => {
     
     return (
@@ -15,4 +15,4 @@ const CurrencyErrorModal = ({ errorModal, onClicked }) => {
     )
 }
 
-export default CurrencyErrorModal
+export default CurrencyErrorModal;

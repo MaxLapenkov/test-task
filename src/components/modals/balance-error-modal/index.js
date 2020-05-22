@@ -1,2 +1,2 @@
-import BalanceErrorModal from './balance-error-modal'
-export default BalanceErrorModal
+import BalanceErrorModal from './balance-error-modal';
+export default BalanceErrorModal;

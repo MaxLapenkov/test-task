@@ -17,4 +17,4 @@ const withService = () => (Wrapped) => {
     }
 }
 
-export default withService
+export default withService;

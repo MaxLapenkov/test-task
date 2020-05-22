@@ -4,11 +4,11 @@ import { compose } from 'redux';
 import { withService } from '../../hoc';
 import { itemsLoaded, sumChanged } from '../../../actions';
 
-import ItemModal from '../../modals/item-modal'
-import BalanceErrorModal from '../../modals/balance-error-modal'
-import SuccessModal from '../../modals/success-modal'
+import ItemModal from '../../modals/item-modal';
+import BalanceErrorModal from '../../modals/balance-error-modal';
+import SuccessModal from '../../modals/success-modal';
 import './main-page.scss';
-class ItemTable extends Component{
+class MainPage extends Component{
 
     state = {
         itemModal: {
@@ -52,30 +52,30 @@ class ItemTable extends Component{
     }
     onModalSubmit = () => {
         const { service, sum } = this.props;
-        const price = -this.state.itemModal.price
-        this.props.sumChanged(price)
+        const price = -this.state.itemModal.price;
+        this.props.sumChanged(price);
         const data = service.getItems();
         let newData = [];
             data.map((item) => {
                 if(item.price <= sum+price) {
-                   newData.push(item)
+                   newData.push(item);
                 }
-                return item
+                return item;
             }) 
-        this.props.itemsLoaded(newData)
+        this.props.itemsLoaded(newData);
         this.setState({
             itemModal: {
                 ...this.state.itemModal,
                 className: 'modal fade modal-hidden'
             },
             successModal: 'modal fade success-fade show'
-        })
+        });
     }
 
     renderRow = (item) => {
             
         const {id, name, price, count, image, isNew} = item;
-        const itemName =  isNew ? <span>{name} <sup className="new-item">new</sup></span> : name
+        const itemName =  isNew ? <span>{name} <sup className="new-item">new</sup></span> : name;
                         return (
                             <tr className="table__row" key={id} onClick={() => this.handleModal(image, price)}>
                                 <th scope="row" className="align-middle">{id}</th>
@@ -89,7 +89,7 @@ class ItemTable extends Component{
     }
     render () {
         const { items } = this.props;
-        const { itemModal, errorModal, successModal } = this.state
+        const { itemModal, errorModal, successModal } = this.state;
         return (
             <main className="main-page container">
             <table className="main-page__table table table-responsive-sm table-bordered">
@@ -108,7 +108,6 @@ class ItemTable extends Component{
                             
                         </tbody>
             </table>
-
             <ItemModal modal={itemModal} onClose={() => this.onModalClose} onSubmit={() => this.onModalSubmit}/>
             <BalanceErrorModal errorModal={errorModal} onClicked={() => this.setState({errorModal: 'modal fade modal-hidden'})}/>
             <SuccessModal successModal={successModal} itemModal={itemModal} onClicked={() => this.setState({successModal: 'modal fade success-fade modal-hidden'})}/>
@@ -129,7 +128,7 @@ const mapDispatchToProps  = {
 export default compose(
     withService(),
     connect(mapStateToProps, mapDispatchToProps)
-)(ItemTable);
+)(MainPage);
 
 
 

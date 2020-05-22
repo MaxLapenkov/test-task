@@ -1,18 +1,18 @@
 import React, {Component} from 'react'
-import Form from '../form'
+import Form from '../form';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withService } from '../hoc';
-import { sumChanged, itemsLoaded } from '../../actions'
+import { sumChanged, itemsLoaded } from '../../actions';
 
-import './header.scss'
+import './header.scss';
 class Header extends Component{
 
     render() {
-        const {service} = this.props
+        const {service} = this.props;
         const data = service.getItems();
 
-        const { sum, sumChanged, itemsLoaded } = this.props
+        const { sum, sumChanged, itemsLoaded } = this.props;
         return (
             <header className="header container">
                 <h1 className="header__title"><i className="fa fa-shopping-bag"></i> Вендинговый автомат</h1>
@@ -28,7 +28,7 @@ class Header extends Component{
     
 }
 const mapStateToProps = ({ sum }) => {
-    return { sum};
+    return { sum };
 };
 const mapDispatchToProps  = {
     sumChanged,

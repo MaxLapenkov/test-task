@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BalanceErrorModal from '../modals/balance-error-modal'
-import CurrencyErrorModal from '../modals/currency-error-modal'
+import BalanceErrorModal from '../modals/balance-error-modal';
+import CurrencyErrorModal from '../modals/currency-error-modal';
 
-import './form.scss'
+import './form.scss';
 
 const Form = ({ sumChanged, itemsLoaded, data, sum}) => {
-    const [money, setMoney] = useState('')
-    const [currency, setCurrency] = useState('')
+    const [money, setMoney] = useState('');
+    const [currency, setCurrency] = useState('');
     const [currencyValue, setCurrencyValue] = useState();
 
-    const [balanceErrorModal, setBalanceErrorModal] = useState('modal fade modal-hidden')
-    const [currencyErrorModal, setCurrencyErrorModal] = useState('modal fade modal-hidden')
+    const [balanceErrorModal, setBalanceErrorModal] = useState('modal fade modal-hidden');
+    const [currencyErrorModal, setCurrencyErrorModal] = useState('modal fade modal-hidden');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,36 +25,36 @@ const Form = ({ sumChanged, itemsLoaded, data, sum}) => {
       
       
     const sendInfo = (money, currency) => {
-        const usdValue = currencyValue.USD.Value
-        const eurValue = currencyValue.EUR.Value
+        const usdValue = currencyValue.USD.Value;
+        const eurValue = currencyValue.EUR.Value;
         if(currency === '') {
             setCurrencyErrorModal('modal fade show')
         } else if(money > 0){
             if (currency === 'usd') {
-                money = money * Math.round(usdValue)
+                money = money * Math.round(usdValue);
             } else if (currency === 'eur') {
-                money = money * Math.round(eurValue)
+                money = money * Math.round(eurValue);
             }  
-            sumChanged(money)
-            const Total = sum += money
+            sumChanged(money);
+            const Total = sum += money;
             let newData = [];
             data.map((item) => {
                 if(item.price <= Total) {
-                   newData.push(item)
+                   newData.push(item);
                 }
-                return item
+                return item;
             })
             if(newData.length === 0) {
-                setBalanceErrorModal('modal fade show')
+                setBalanceErrorModal('modal fade show');
             }
-            itemsLoaded(newData)
+            itemsLoaded(newData);
         } 
     }
     const clearInfo = () => {
-        setMoney('')
-        setCurrency('')
-        sumChanged('clear')
-        itemsLoaded(data)
+        setMoney('');
+        setCurrency('');
+        sumChanged('clear');
+        itemsLoaded(data);
     }
     return (
         <div>
@@ -67,12 +67,12 @@ const Form = ({ sumChanged, itemsLoaded, data, sum}) => {
                 </select>
                 <input type="number" placeholder="Сумма" value={money} onChange={(e) => setMoney (Number(e.target.value))}/>
                 <button className="btn btn-success btn-sm" onClick={(e) => {
-                    e.preventDefault()
-                    sendInfo(money, currency)
+                    e.preventDefault();
+                    sendInfo(money, currency);
                     }}><i className="fa fa-plus-circle"></i> Добавить</button>
                 <button className="btn btn-danger btn-sm" onClick={(e) => {
-                    e.preventDefault()
-                    clearInfo()
+                    e.preventDefault();
+                    clearInfo();
                 }}><i className="fa fa-trash-o"></i> Сбросить</button>
             </form>
             <BalanceErrorModal errorModal={balanceErrorModal} onClicked={() => setBalanceErrorModal('modal fade modal-hidden')}/>
@@ -80,4 +80,4 @@ const Form = ({ sumChanged, itemsLoaded, data, sum}) => {
         </div>
     )
 }
-export default Form
+export default Form;

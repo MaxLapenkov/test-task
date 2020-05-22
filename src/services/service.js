@@ -20,7 +20,7 @@
             {id: 6, name: 'Coffee', price: 29, count: 35, image: coffee, isNew: false},
             {id: 7, name: 'Sprite', price: 50, count: 3, image: sprite, isNew: true},
             {id: 8, name: 'Tea', price: 80, count: 55, image: tea, isNew: false},
-            {id: 9, name: 'cake', price: 40, count: 15, image: cake, isNew: true},
+            {id: 9, name: 'cake', price: 40, count: 15, image: cake, isNew: true}
         ];
      }
  }

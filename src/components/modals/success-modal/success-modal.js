@@ -1,7 +1,7 @@
-import React from 'react'
-import '../modals.scss'
+import React from 'react';
+import '../modals.scss';
 const SuccessModal = ({ successModal, onClicked, itemModal }) => {
-    const { image } = itemModal
+    const { image } = itemModal;
     return (
         <div className={successModal}>
                 <div className="modal-dialog success-dialog">
@@ -14,4 +14,4 @@ const SuccessModal = ({ successModal, onClicked, itemModal }) => {
     )
 }
 
-export default SuccessModal
+export default SuccessModal;

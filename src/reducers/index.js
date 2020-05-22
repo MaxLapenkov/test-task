@@ -24,14 +24,7 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     sum: sum += Number(action.payload)
                 };
-            }
-            
-        case 'SUM_CLEARED':
-            return {
-                ...state,
-                sum: 0
-            };
-        
+            }      
          default :
             return state
     }

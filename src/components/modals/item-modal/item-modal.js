@@ -1,7 +1,7 @@
-import React from 'react'
-import '../modals.scss'
+import React from 'react';
+import '../modals.scss';
 const ItemModal = ({modal, onClose, onSubmit}) => {
-    const { className, image, price } = modal
+    const { className, image, price } = modal;
     return (
         <div className={className}>
             <div className="modal-dialog">
@@ -19,4 +19,4 @@ const ItemModal = ({modal, onClose, onSubmit}) => {
     )
 }
 
-export default ItemModal
+export default ItemModal;

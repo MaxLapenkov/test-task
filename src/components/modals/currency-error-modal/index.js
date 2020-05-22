@@ -1,2 +1,2 @@
-import CurrencyErrorModal from './currency-error-modal'
-export default CurrencyErrorModal
+import CurrencyErrorModal from './currency-error-modal';
+export default CurrencyErrorModal;
