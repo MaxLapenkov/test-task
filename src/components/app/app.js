@@ -1,12 +1,16 @@
 import React from 'react';
-import ItemTable from '../item-table/item-table';
-import Header from '../header/'
+
+import MainPage from '../pages/main-page';
+import Header from '../header/';
+
+import './app.scss'
+
 const App = () => {
 
     return (
-        <div>
-        <Header/>
-        <ItemTable />
+        <div className="app">
+            <Header/>
+            <MainPage />
         </div>
     )
 }

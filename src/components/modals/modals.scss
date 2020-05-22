@@ -1,0 +1,55 @@
+.modal{
+    display: block;
+    .modal-dialog {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        pointer-events: all;
+        background-color: white;
+        opacity: 1;
+        z-index: 2000;
+        margin: 30vh auto;
+        border-radius: 5px;
+        
+    }
+    .success-dialog{
+        background-color: #A4B9D6;
+    }
+    &__title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: black;
+    }
+    &__button{
+        padding: 10px 30px;
+    }
+    .item-button{
+        margin-right: 10px;
+    }
+
+}
+.fade{
+    &::before {
+        content: '';
+        background: #35455B;
+        position: fixed; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%;
+        opacity: 0.7;
+        z-index: 1900;
+    }
+}
+.success-fade {
+    &::before{
+        opacity: 1;
+    } 
+}
+
+.modal-hidden{
+    display: none;
+}

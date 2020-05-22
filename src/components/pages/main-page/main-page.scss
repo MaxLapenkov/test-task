@@ -1,0 +1,28 @@
+.main-page{
+    background-color: white;
+    padding: 0;
+    &__table{
+        text-align: center;
+        
+    }
+}
+.table {
+    &__image {
+        border: 1px solid #dee2e6;
+    }
+    &__row{
+        cursor: pointer;
+    }
+    &__icon {
+        color: gold;
+    }
+    th{
+        color: #6C757C;
+    }
+    .new-item {
+        background-color: #00A1B6;
+        color: white;
+        border-radius: 2px;
+    }
+    
+}

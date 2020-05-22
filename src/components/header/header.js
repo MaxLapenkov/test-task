@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withService } from '../hoc';
 import { sumChanged, itemsLoaded } from '../../actions'
+
+import './header.scss'
 class Header extends Component{
 
     render() {
@@ -12,10 +14,12 @@ class Header extends Component{
 
         const { sum, sumChanged, itemsLoaded } = this.props
         return (
-            <header>
-                <h1>Вендинговый автомат</h1>
-                <div className="money">Количество денег {sum}</div>
-                <Form sumChanged = {sumChanged}  itemsLoaded = {itemsLoaded} data={data} sum={sum} />
+            <header className="header container">
+                <h1 className="header__title"><i className="fa fa-shopping-bag"></i> Вендинговый автомат</h1>
+                <div className="header__menu">
+                    <div className="header__money"><i className="fa fa-shopping-cart"></i> <span>{sum}</span></div>
+                    <Form sumChanged = {sumChanged}  itemsLoaded = {itemsLoaded} data={data} sum={sum} />
+                </div>
             </header>
             
         )
