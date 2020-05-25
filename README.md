@@ -8,5 +8,8 @@
 Источником данных выступает компонент service в папке services, далее данные передаются в глобальный стор Redux в компоненте main-page с помощью метода жизненного цикла "componentDidMount". Reducer и action-creators находятся соответственно в папках reducer и actions.
 Верстка сделана на Bootstrap, иконки из font-awesome.
 
+Сборка производится командой npm run build.
+Запуск осущетсвляется командой npm start
+
 gh-pages: https://maxlapenkov.github.io/test-task/
 
