@@ -9,7 +9,8 @@
 Верстка сделана на Bootstrap, иконки из font-awesome.
 
 Сборка производится командой npm run build.
-Запуск осущетсвляется командой npm start
+
+Запуск осуществляется командой npm start
 
 gh-pages: https://maxlapenkov.github.io/test-task/
 
