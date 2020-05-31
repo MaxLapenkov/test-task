@@ -74,7 +74,7 @@ class MainPage extends Component{
 
     renderRow = (item) => {
             
-        const {id, name, price, count, image, isNew} = item;
+        const {id, name, price, image, isNew} = item;
         const itemName =  isNew ? <span>{name} <sup className="new-item">new</sup></span> : name;
                         return (
                             <tr className="table__row" key={id} onClick={() => this.handleModal(image, price)}>
@@ -82,7 +82,6 @@ class MainPage extends Component{
                                 <td className="align-middle"><img className="table__image" src={image} alt="item" width="50"/></td>
                                 <td className="align-middle">{itemName}</td>
                                 <td className="align-middle">{price}</td>
-                                <td className="align-middle">{count}</td>
                             </tr>
                             
                         )
@@ -99,7 +98,7 @@ class MainPage extends Component{
                             <th scope="col"><i className="table__icon fa fa-cubes"></i> Предмет</th>
                             <th scope="col"><i className="table__icon fa fa-pencil"></i> Название</th>
                             <th scope="col"><i className="table__icon fa fa-rub"></i> Цена</th>
-                            <th scope="col"><i className="table__icon fa fa-archive"></i> Количество</th>
+
                             </tr>
                         </thead>
                         <tbody>
